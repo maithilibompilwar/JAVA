@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class student
+{
+	static int id;
+	static String name;
+	public static void main(String args[])
+	{
+		student s1=new student();
+		Scanner sc=new Scanner(System.in);
+		System.out.println("Enter student name:");
+		name=sc.nextLine();
+		System.out.println("Enter student id:");
+		id=sc.nextInt();		
+		System.out.println("Student name:"+name);
+		System.out.println("Student ID:"+id);
+	}
+}
