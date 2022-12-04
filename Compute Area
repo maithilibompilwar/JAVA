@@ -1,0 +1,65 @@
+package General;
+import java.util.Scanner;
+public class Shape
+{
+	int height;
+	int width;
+	void get_data(int h,int w)
+	{
+		height=h;
+		width=w;
+	}
+	int Rectangle_area()
+	{
+		int area=height*width;
+		return(area);		
+	}
+	int Triangle_area()
+	{
+		int area=height*width/2;
+		return(area);
+	}
+
+	public static void main(String args[])
+	{
+		Scanner sc=new Scanner(System.in);
+		int ch;
+		int h,w;
+		Shape S;
+		do {
+			
+			System.out.println("Enter your choice:");
+			System.out.println("1.RECTANGLE");
+			System.out.println("2.TRIANGLE");
+            System.out.println("3.EXIT");
+            ch=sc.nextInt();
+			switch(ch)
+			{
+			case 1:
+				System.out.println("Enter height of Rectangle:");
+				h=sc.nextInt();
+				System.out.println("Enter width of Rectangle:");
+				w=sc.nextInt();
+				Shape s1=new Shape();
+				s1.get_data(h, w);
+				System.out.println("Area:"+s1.Rectangle_area());
+				break;
+			case 2:
+				System.out.println("Enter height of Triangle:");
+				h=sc.nextInt();
+				System.out.println("Enter width of Triangle:");
+				w=sc.nextInt();
+				Shape s2=new Shape();
+				s2.get_data(h, w);
+				System.out.println("Area:"+s2.Triangle_area());
+				break;
+			case 3:
+				break;
+				default:
+					System.out.println("INVALID CHOICE!!");				
+			}
+			
+		} while (ch !=3); 
+			
+		};
+	}
