@@ -1,0 +1,111 @@
+package Constructor;
+
+import java.util.Scanner;
+class complex
+{
+	float real,image;
+
+public complex()
+{
+	
+}
+public complex(float real,float image)
+{
+	this.real=real;
+	this.image=image;
+}
+private complex addcomplex(complex c1,complex c2)//used complex because of default constructor
+{
+	complex temp=new complex();  //Creating a temporary complex number consisting of real and imaginary part 
+	temp.real=c1.real+c2.real;
+	temp.image=c1.image+c2.image;
+	return temp;
+}
+private complex subcomplex(complex c1,complex c2)
+{
+	complex temp=new complex();
+	temp.real=c1.real-c2.real;
+	temp.image=c1.image-c2.image;
+	return temp;
+}
+private complex mulcomplex(complex c1,complex c2)
+{
+	complex temp=new complex();
+	temp.real=c1.real*c2.real;
+	temp.image=c1.image*c2.image;
+	return temp;
+}
+private complex divcomplex(complex c1,complex c2)
+{
+	complex temp=new complex();
+	float real,image,deno;
+	deno = (c1.real*c1.image + c1.image*c1.real);
+	temp.real = (c1.real*c2.real + c1.image*c2.image)/deno;
+	temp.image = (c2.real*c2.image - c1.real*c2.image)/deno;
+	return temp;
+}
+public static void main(String args[])
+{
+	float n1,n2,n3,n4;
+	int ch;
+	int check;
+	Scanner sc=new Scanner(System.in);
+	System.out.println("Enter the first real number:");
+	n1=sc.nextInt();
+	System.out.println("Enter the first imaginary number:");
+	n2=sc.nextInt();
+	complex c1=new complex(n1,n2);
+	System.out.println("Enter the second real number:");
+	n3=sc.nextInt();
+	System.out.println("Enter the second imaginary number:");
+	n4=sc.nextInt();
+	complex c2=new complex(n3,n4);
+	complex c3=new complex();
+	do
+	{
+		System.out.println("Complex number calculations:");
+		System.out.println("1. ADDITION");
+		System.out.println("2. SUBTRACTION");
+		System.out.println("3. MULTIPLICATION");
+		System.out.println("4. DIVISION");
+		System.out.println("Enter your choice:");
+	    ch=sc.nextInt();
+		switch(ch)
+		{
+		case 1:
+			System.out.println("First complex number:"+c1.real+"+"+c1.image+"i");
+			System.out.println("Second complex number:"+c2.real+"+"+c2.image+"i");
+			c3=c3.addcomplex(c1,c2);
+			System.out.println("Sum of complex number:"+c3.real+"+"+c3.image+"i");			
+			break;
+		case 2:
+			
+			System.out.println("First complex number:"+c1.real+"-"+c1.image+"i");
+			System.out.println("Second complex number:"+c2.real+"-"+c2.image+"i");
+			c3=c3.subcomplex(c1,c2);
+			System.out.println("Subtraction of complex number:"+c3.real+"-"+c3.image+"i");
+			
+			break;
+		case 3:
+			System.out.println("First complex number:"+c1.real+"*"+c1.image+"i");
+			System.out.println("Second complex number:"+c2.real+"*"+c2.image+"i");
+			c3=c3.mulcomplex(c1,c2);
+			System.out.println("Multiplication of complex number:"+c3.real+"*"+c3.image+"i");
+			
+			break;
+		case 4:
+			System.out.println("First complex number:"+c1.real+"/"+c1.image+"i");
+			System.out.println("Second complex number:"+c2.real+"/"+c2.image+"i");
+			c3=c3.divcomplex(c1,c2);
+			System.out.println("Division of complex number:"+c3.real+"/"+c3.image+"i");
+			
+			break;
+			default:
+				System.out.println("INVALID CHOICE!!");
+		}
+		System.out.println("Do You Want To Continue Press 1");
+		check = sc.nextInt();		
+	}while(ch !=4);
+}
+}
+
