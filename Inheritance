@@ -1,0 +1,197 @@
+ Inheritance;
+import java.util.Scanner;
+class Employee
+{
+	int empid;
+	String name,address,mailid;
+	long mobile;
+	Scanner get=new Scanner(System.in);
+	void get_data()
+	{
+		System.out.println("Enter employee name:");
+		name=get.nextLine();
+		System.out.println("Enter mail id:");
+		mailid=get.nextLine();
+		System.out.println("Enter the address:");
+		address=get.nextLine();
+		System.out.println("Enter the employee id:");
+		empid=get.nextInt();
+		System.out.println("Enter the mobile:");
+		mobile=get.nextLong();
+	}
+	void display()
+	{
+		System.out.println("Employee name:"+name);
+		System.out.println("Employee ID:"+empid);
+		System.out.println("Employee email id:"+mailid);
+		System.out.println("Employee Mobile Number:"+mobile);
+		System.out.println("Employee Address:"+address);
+	}
+}
+class Programmer extends Employee
+{
+	double salary,bp,da,hra,pf,club,net,gross;
+	void getprogrammer()
+	{
+		System.out.println("Enter Basic pay:");
+		Scanner get=new Scanner(System.in);
+		bp=get.nextDouble();
+	}
+	void calculateprog()
+	{
+		da=(0.97*bp);
+		hra=(0.10*bp);
+		pf=(0.12*bp);
+		club=(0.1*bp);
+		gross=(bp+da+hra);
+		net=(gross-pf-club);
+		System.out.println("-------------------------------");
+		System.out.println("PAY SLIP OF PROGRAMMER");
+		System.out.println("-------------------------------");
+		System.out.println("BASIC PAY:RS."+bp);
+		System.out.println("DA: Rs."+da);
+		System.out.println("HRA: Rs."+hra);
+		System.out.println("PF: Rs."+pf);
+		System.out.println("CLUB: Rs."+club);
+		System.out.println("GROSS: Rs."+gross);
+		System.out.println("NET PAY: Rs."+net);		
+	}	
+}
+class Teamlead extends Employee
+{
+	double salary,bp,da,hra,pf,club,net,gross;
+	void getTL()
+	{
+		System.out.println("Enter Basic pay:");
+		Scanner get=new Scanner(System.in);
+		bp=get.nextDouble();
+	}
+	void calculateTL()
+	{
+		da=(0.97*bp);
+		hra=(0.10*bp);
+		pf=(0.12*bp);
+		club=(0.1*bp);
+		gross=(bp+da+hra);
+		net=(gross-pf-club);
+		System.out.println("-------------------------------");
+		System.out.println("PAY SLIP OF TEAMLEAD");
+		System.out.println("-------------------------------");
+		System.out.println("BASIC PAY:RS."+bp);
+		System.out.println("DA: Rs."+da);
+		System.out.println("HRA: Rs."+hra);
+		System.out.println("PF: Rs."+pf);
+		System.out.println("CLUB: Rs."+club);
+		System.out.println("GROSS: Rs."+gross);
+		System.out.println("NET PAY: Rs."+net);		
+	}	
+}
+
+class AssPM extends Employee
+{
+	double salary,bp,da,hra,pf,club,net,gross;
+	void getasspm()
+	{
+		System.out.println("Enter Basic pay:");
+		Scanner get=new Scanner(System.in);
+		bp=get.nextDouble();
+	}
+	void calculateasspm()
+	{
+		da=(0.97*bp);
+		hra=(0.10*bp);
+		pf=(0.12*bp);
+		club=(0.1*bp);
+		gross=(bp+da+hra);
+		net=(gross-pf-club);
+		System.out.println("--------------------------------------------");
+		System.out.println("PAY SLIP OF ASSISTANT PROJECT MANAGER");
+		System.out.println("--------------------------------------------");
+		System.out.println("BASIC PAY:RS."+bp);
+		System.out.println("DA: Rs."+da);
+		System.out.println("HRA: Rs."+hra);
+		System.out.println("PF: Rs."+pf);
+		System.out.println("CLUB: Rs."+club);
+		System.out.println("GROSS: Rs."+gross);
+		System.out.println("NET PAY: Rs."+net);		
+	}	
+}
+class ProjectManager extends Employee
+{
+	double salary,bp,da,hra,pf,club,net,gross;
+	void getPM()
+	{
+		System.out.println("Enter Basic pay:");
+		Scanner get=new Scanner(System.in);
+		bp=get.nextDouble();
+	}
+	void calculatePM()
+	{
+		da=(0.97*bp);
+		hra=(0.10*bp);
+		pf=(0.12*bp);
+		club=(0.1*bp);
+		gross=(bp+da+hra);
+		net=(gross-pf-club);
+		System.out.println("-------------------------------");
+		System.out.println("PAY SLIP OF PROJECT MANAGER");
+		System.out.println("-------------------------------");
+		System.out.println("BASIC PAY:RS."+bp);
+		System.out.println("DA: Rs."+da);
+		System.out.println("HRA: Rs."+hra);
+		System.out.println("PF: Rs."+pf);
+		System.out.println("CLUB: Rs."+club);
+		System.out.println("GROSS: Rs."+gross);
+		System.out.println("NET PAY: Rs."+net);		
+	}	
+}
+public class Salary
+{
+	public static void main(String args[])
+	{
+		int ch,cont;
+		do
+		{
+			System.out.println("PAYROLL");
+			System.out.println("1. PROGRAMMER");
+			System.out.println("2. TEAMLEAD");
+			System.out.println("3. ASSISTANT MANAGER");
+			System.out.println("4. PROJECT MANAGER");
+			Scanner c=new Scanner(System.in);
+			System.out.println("Enter the choice u want:");
+			ch=c.nextInt();
+			switch(ch)
+			{
+			case 1:
+				Programmer P=new Programmer();
+				P.get_data();
+				P.getprogrammer();
+				P.display();
+				P.calculateprog();
+				break;
+			case 2:
+				Teamlead T=new Teamlead();
+				T.get_data();
+				T.getTL();
+				T.display();
+				T.calculateTL();
+				break;
+			case 3:
+				AssPM AM=new AssPM();
+				AM.get_data();
+				AM.getasspm();
+				AM.display();
+				AM.calculateasspm();
+				break;
+			case 4:
+				ProjectManager PM=new ProjectManager();
+				PM.get_data();
+				PM.getPM();
+				PM.display();
+				PM.calculatePM();
+				break;				
+			}System.out.println("Pls enter o to quit and 1 to continue");
+			cont=c.nextInt();
+		}while(ch !=4);
+	}
+}
